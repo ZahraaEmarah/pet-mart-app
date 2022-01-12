@@ -1,0 +1,45 @@
+body{
+    font-family: 'Bitter', serif;
+}
+
+.logo{
+    /* width: 10%;
+    height: 10%; */
+}
+
+.box {
+    /* border: 1px solid gray; */
+    display: inline-block;
+    width: 300px;
+    height: 450px;
+    text-align: center;
+}
+
+span, .danger{
+    color: red;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    max-height: 45%;
+}
+
+h4{
+    font-weight: bold;
+    margin-top: 40px;
+}
+h5, h3{
+    margin: 5px;
+}
+
+.msg{
+    text-align: center;
+    border: 2px solid gray;
+    padding: 5%;
+    color: rgb(4, 173, 4);
+}
+
+.warning{
+    background-color: lightyellow;
+}
