@@ -1,1 +1,38 @@
-<p>product-details works!</p>
+<div class="container" style="text-align: center;">
+    <div class="row P-img">
+        <img [src]="getImg()">
+    </div>
+    <hr>
+    <div class="row mb-5">
+        <h1>{{getName()}}</h1>
+        <h3>Price: {{getPrice() | currency:'USD':'symbol'}}</h3>
+        <!-- <h3>{{getDescription()}}</h3> -->
+        <div [ngSwitch]="getQuantity()">
+            <h3 style="font-weight: bold;" *ngSwitchCase="0">Out of Stock</h3>
+            <h3 class="danger" *ngSwitchCase="1">Last Item</h3>
+            <h3 *ngSwitchDefault>Quantity: {{getQuantity()}}</h3>
+        </div>
+    </div>
+    <div class="row" style="text-align: center; display: inline;">
+        <button [disabled]="PID == 1" class="col-1 mx-2 btn btn-primary btn-block" (click)="getPrevProd()">prev</button>
+        <button *ngIf="getCountInCart() <= 0" [ngClass]="{'disabled': getQuantity() == 0}" type="button"
+            class="col-3 mx-2 btn btn-primary btn-block" (click)="Add()">Add to Cart</button>
+        <div *ngIf="getCountInCart() > 0" class="col-5 input-group" style="display: inline;">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-number" (click)="Decrement()">-
+                </button>
+            </span>
+            <input [disabled]="1" style="text-align: center;" [id]="PID" type="text" class="f-control input-number"
+                [value]="getCountInCart()">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-number" (click)="Increment()">+
+                </button>
+            </span>
+        </div>
+        <button [disabled]="isLast()==true" class="col-1 mx-2 btn btn-primary btn-block"
+            (click)="getNextProd()">next</button>
+    </div>
+    <div class="row" style="text-align: center;">
+        <button class="col-2 btn btn-primary btn-sm" (click)="goBack()">Back</button>
+    </div>
+</div>

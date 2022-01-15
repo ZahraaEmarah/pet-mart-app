@@ -76,7 +76,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
   getProduct(item: IProduct){
     if(!this.fromCart){
-      this.router.navigate(['/Details', item.ID]);
+      this.router.navigate(['/Details', item.ID, item.Quantity]);
     }
     this.fromCart = false;
   }

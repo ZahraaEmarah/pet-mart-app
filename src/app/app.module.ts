@@ -18,6 +18,9 @@ import { SubHeaderComponent } from './Components/order/sub-header/sub-header.com
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { ProductDetailsComponent } from './Components/order/master/product-details/product-details.component';
+import { ContactUsComponent } from './Components/contact-us/contact-us.component';
+import { UserComponent } from './Components/user/user.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { ProductDetailsComponent } from './Components/order/master/product-detai
     AboutComponent,
     ErrorComponent,
     ProductDetailsComponent,
+    ContactUsComponent,
+    UserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
