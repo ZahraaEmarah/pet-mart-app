@@ -1,53 +1,44 @@
-<div class="mt-3">
-    
-    <div class="container" style="display: inline-block;">
-        <div class="row">
-            <img class="logo col-2" [src]="logo">
-            <h1 class="col-10">{{myStore.Name}}</h1>
+<div class="container">
+    <!-- <div class="m-1 row">
+        <div class="px-5" style="float: right;">
+            <button (click)="getCart()" class="col-3 mt-3 btn btn-warning"
+                style="float: right; border: 1px solid gray;">
+                <img src="assets/cart.png" width="20" /> Shopping Cart
+            </button>
+        </div>
+    </div> -->
+    <div class="mt-3 row">
+        <div [hidden]="selectedValue < 0" id="display">
+            <div appProductCard *ngFor="let item of ProductList"
+                [hidden]="(selectedValue > 0 && item.CategoryID != selectedValue)"
+                class="box m-2 p-2" [ngClass]="{'warning': item.Quantity==1}" (click)="getProduct(item)">
+                <img [src]="item.img">
+                <h4>{{item.Name}}</h4>
+                <h6>{{item.Price | currency:'USD':'symbol'}}</h6>
+                <h6>{{item.Price | dollarToEgp: 10 | currency: 'EGP '}}</h6>
+                <div [ngSwitch]="item.Quantity">
+                    <h6 style="font-weight: bold;" *ngSwitchCase="0">Out of Stock</h6>
+                    <h6 class="danger" *ngSwitchCase="1">Last Item</h6>
+                    <h6 *ngSwitchDefault>Quantity: {{item.Quantity}}</h6>
+                </div>
+
+                <div class="row px-5 mt-4" style="text-align: center;">
+                    <button [ngClass]="{'disabled': item.Quantity == 0}" *ngIf="getValue(item) == 0" type="button" class="btn btn-primary btn-block"
+                        (click)="AddToCart(item)">Add to Cart</button>
+                    <div *ngIf="getValue(item) > 0" class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary btn-number" (click)="Decrement(item)">-
+                            </button>
+                        </span>
+                        <input [disabled]="1" style="text-align: center;" [id]="item.ID" type="text"
+                            class="form-control input-number" [value]="getValue(item)" [max]="item.Quantity">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary btn-number" (click)="Increment(item)">+
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <h3 [hidden]="Discount == 'No Discount'">We offer an explicit discount of: <span>{{Discount}}</span></h3>
-
-    <select [(ngModel)]="selectedValue" class="form-select" aria-label="Default select example">
-        <option *ngFor="let item of CatList let i = index" [ngValue]="i+1"> {{item.Name}}</option>
-    </select>
-
-    <form class="my-2 form-inline" (submit)="handle()">
-        <div class="form-group">
-            <input [(ngModel)]="clientName" name="clientName" type="text" class="my-2 form-control"
-                placeholder="Enter your Name">
-        </div>
-        <div class="form-group">
-            <input [(ngModel)]="NationalID" name="id" type="text" class="my-2 form-control"
-                placeholder="Enter your National ID">
-        </div>
-        <div class="form-group">
-            <input [(ngModel)]="card" name="id" type="text" class="my-2 form-control"
-                placeholder="Enter your Credit-Card Number">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Enter</button>
-    </form>
-
-    <div *ngIf="IsSubmit">
-        <h2>Thanks for purchasing from our Store {{clientName}}</h2>
-        <h6>{{NationalID | nationalIDPipe: "FullDate"}}</h6>
-        <h6>{{NationalID | nationalIDPipe: "DD"}}</h6>
-        <h6>{{NationalID | nationalIDPipe: "MM"}}</h6>
-        <h6>{{NationalID | nationalIDPipe: "YY"}}</h6>
-        <h6>Your credit card is {{card | creditCardpipe}}</h6>
-    </div>
-
-    <div [hidden]="selectedValue < 0" *ngIf="!purchased" id="display">
-        <div appProductCard *ngFor="let item of ProductList" [hidden]="item.CategoryID != selectedValue || item.Quantity == 0" class="box m-3 p-2"
-        [ngClass]="{'warning': item.Quantity==1}">
-            <img [src]="item.img">
-            <h4>{{item.Name}}</h4>
-            <h6>{{item.Price | currency:'USD':'symbol'}}</h6>
-            <h6>{{item.Price | dollarToEgp: 10 | currency: 'EGP '}}</h6>
-            <h6 [ngClass]="{'danger': item.Quantity==1}">Quantity: {{item.Quantity}}</h6>
-            <button type="button" class="px-5 my-2 btn btn-primary btn-block" (click)="buy(item)">Purchase</button>
-        </div>
-    </div>
-
 </div>

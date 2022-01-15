@@ -1,0 +1,76 @@
+<div class="mt-5 container">
+    <div *ngIf="IsSubmit" class="row">
+        <div *ngIf="!Ischeck" class="p-3">
+            <h3>Payment</h3>
+            <form class="my-2 form-inline" (submit)="checkout()">
+                <div class="form-group">
+                    <input required [(ngModel)]="clientName" name="clientName" type="text" class="my-2 form-control"
+                        placeholder="Enter your Name">
+                </div>
+                <div class="form-group">
+                    <input required [(ngModel)]="NationalID" name="id" type="text" class="my-2 form-control"
+                        placeholder="Enter your National ID">
+                </div>
+                <div class="form-group">
+                    <input required [(ngModel)]="creditCard" name="id" type="text" class="my-2 form-control"
+                        placeholder="Enter your Credit-Card Number">
+                </div>
+                <button *ngIf="!Ischeck" type="submit" class="px-5 my-3 btn btn-success mb-2">Proceed</button>
+            </form>
+        </div>
+        <div *ngIf="Ischeck" style="text-align: center;">
+            <div>
+                <h2 class="success my-5">Thanks for purchasing from our Store {{clientName}}</h2>
+            </div>
+            <h3>Order Summary:</h3>
+            <h5>{{date|datePipe}}</h5>
+            <button (click)="Home()" class="px-5 my-3 btn btn-success mb-2">Continue Shopping</button>
+        </div>
+    </div>
+    <div *ngIf="!Ischeck">
+        <table class="table" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price/unit</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of shoppingCart let i = index">
+                <tr class="mx-3">
+                    <th scope="row">{{i+1}}</th>
+                    <td><img width="50" [src]="item.img"></td>
+                    <td>{{item.Price | currency:'USD':'symbol'}}</td>
+                    <td>{{item.count}}</td>
+                    <td>{{item.TPrice | currency:'USD':'symbol'}}</td>
+                    <td *ngIf="!Ischeck">
+                        <div class="row input-group">
+                            <div class="col-6" style="display: inherit;">
+                                <div class="row" style="display: inherit;">
+                                    <div class="col-2"></div>
+                                    <button type="button" class="col-2 btn btn-primary btn-number" (click)="Decrement(item)">-
+                                    </button>
+                                    <input [disabled]="1" style="text-align: center;" [id]="item.ID" type="text"
+                                        class="col-6" [value]="item.count">
+                                    <button type="button" class="col-2 btn btn-primary btn-number" (click)="Increment(item)">+
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-danger" (click)="remove(item)">Remove</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <h5 class="col-6">Total Price: <span>{{total | currency:'USD':'symbol'}}</span></h5>
+            <span *ngIf="!IsSubmit" style="float: right;" class="col-5"><button type="button"
+                    class="px-5 my-2 btn btn-warning" (click)="ViewPayment()">Checkout</button></span>
+        </div>
+    </div>
+</div>

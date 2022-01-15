@@ -1,9 +1,0 @@
-<div class="container p-3 m-3" [ngStyle]="{'border': '1px solid gray'}">
-    <!-- <div class="row">
-        <h3 class="col-2">Your Cart |</h3>
-        <h4 class="col-10">Purchase Date: {{purchaseDate| datePipe}}</h4>
-    </div> -->
-    <select [(ngModel)]="selectedValue" class="form-select" aria-label="Default select example">
-        <option *ngFor="let item of CatList let i = index" [ngValue]="i+1"> {{item.Name}}</option>
-    </select>
-</div>

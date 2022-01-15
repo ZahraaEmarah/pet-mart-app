@@ -1,0 +1,13 @@
+span{
+    color: limegreen;
+}
+
+.danger{
+    color: red;
+    font-weight: bold;
+}
+
+.success{
+    color: limegreen;
+    font-weight: bold;
+}

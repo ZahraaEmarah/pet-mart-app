@@ -11,7 +11,7 @@ export class ProductCardDirective {
   }
 
   @HostListener('mouseover') onMouseOver() {
-    this.elem.nativeElement.style = `border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;`;
+    this.elem.nativeElement.style = `border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; cursor: pointer;`;
   }
 
   @HostListener('mouseout') onMouseOut() {

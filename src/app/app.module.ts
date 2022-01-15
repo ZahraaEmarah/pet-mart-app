@@ -9,12 +9,15 @@ import { ProductsComponent } from './Components/order/master/products/products.c
 import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardDirective } from './Directives/product-card.directive';
-import { ShoppingCartComponent } from './Components/order/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './Components/order/master/shopping-cart/shopping-cart.component';
 import { DollarToEgpPipe } from './Pipes/dollar-to-egp.pipe';
 import { DatePipePipe } from './Pipes/date-pipe.pipe';
 import { NationalIDPipe } from './Pipes/national-id.pipe';
 import { CreditCardpipePipe } from './Pipes/credit-cardpipe.pipe';
-import { SubHeaderComponent } from './Components/order/master/sub-header/sub-header.component';
+import { SubHeaderComponent } from './Components/order/sub-header/sub-header.component';
+import { AboutComponent } from './Components/about/about.component';
+import { ErrorComponent } from './Components/error/error.component';
+import { ProductDetailsComponent } from './Components/order/master/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { SubHeaderComponent } from './Components/order/master/sub-header/sub-hea
     NationalIDPipe,
     CreditCardpipePipe,
     SubHeaderComponent,
+    AboutComponent,
+    ErrorComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

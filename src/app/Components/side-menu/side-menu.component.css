@@ -7,6 +7,9 @@ body {
     }
   }
   
+  a:hover{
+    cursor: pointer;
+  }
   /* Sidebar */
   .sidebar {
     position: fixed;

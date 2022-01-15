@@ -1,12 +1,10 @@
 <app-header></app-header>
 <div class="container-fluid">
-  <button class="btn btn-default my-4" style="border: 1px solid gray;" (click)="toggleCart()">
-    <img src="assets/cart.png" width="30"/> Shopping cart
-</button>
   <div class="row">
     <app-side-menu class="col-3"></app-side-menu>
-    <app-products *ngIf="!cartClicked" class="col-9"></app-products>
-    <app-shopping-cart *ngIf="cartClicked" class="col-9"></app-shopping-cart>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
