@@ -1,8 +1,8 @@
-<div class="mt-5 container">
+<div [hidden]="msg==1" class="mt-5 container">
     <div *ngIf="IsSubmit" class="row">
         <div *ngIf="!Ischeck" class="p-3">
             <h3>Payment</h3>
-            <form class="my-2 form-inline" (submit)="checkout()">
+            <form class="my-2 form-inline" (submit)="OrdercheckOut()">
                 <div class="form-group">
                     <input required [(ngModel)]="clientName" name="clientName" type="text" class="my-2 form-control"
                         placeholder="Enter your Name">
@@ -53,7 +53,7 @@
                                     <div class="col-2"></div>
                                     <button type="button" class="col-2 btn btn-primary btn-number" (click)="Decrement(item)">-
                                     </button>
-                                    <input [disabled]="1" style="text-align: center;" [id]="item.ID" type="text"
+                                    <input [disabled]="1" style="text-align: center;" [id]="item.id" type="text"
                                         class="col-6" [value]="item.count">
                                     <button type="button" class="col-2 btn btn-primary btn-number" (click)="Increment(item)">+
                                     </button>
@@ -73,4 +73,8 @@
                     class="px-5 my-2 btn btn-warning" (click)="ViewPayment()">Checkout</button></span>
         </div>
     </div>
+</div>
+
+<div [hidden]="msg == 0" class="content mt-5 ErrorMsg">
+    <h3>Your Cart's Empty</h3>
 </div>

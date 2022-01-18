@@ -7,9 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a>
                 <a class="nav-link" href="#">Features</a>
                 <a class="nav-link" href="#">Pricing</a>
+                <a [hidden]="isLogged" class="nav-link" href="#" routerLink="/Login" routerLinkActive="active">Login</a>
+                <a [hidden]="!isLogged" class="nav-link" href="#" routerLink="/Login"
+                    routerLinkActive="active">Logout</a>
+                <a class="nav-link" href="#" routerLink="/Admin/Dashboard"
+                    routerLinkActive="active">Admin</a>
             </div>
         </div>
     </div>

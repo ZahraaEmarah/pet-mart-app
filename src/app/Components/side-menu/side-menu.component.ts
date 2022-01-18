@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductServiceService } from 'src/app/Services/product-service.service';
+import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,34 +10,13 @@ import { Router } from '@angular/router';
 })
 export class SideMenuComponent implements OnInit {
   onDisplay: number = 0;
-
-  constructor(private router: Router) { }
+  itemsNo: number = 0;
+  constructor(private router: Router, private shoppingCartSrv: ShoppingCartService) { }
 
   ngOnInit(): void {
-  }
-
-  HomePage(){
-    this.onDisplay = 0;
-    this.router.navigate(['/']);
-  }
-
-  ShoppingCart(){
-    this.onDisplay = 1;
-    this.router.navigate(['/Order']);
-  }
-
-  Products(){
-    this.onDisplay = 2;
-    this.router.navigate(['/Products']);
-  }
-
-  About(){
-    this.onDisplay = 3;
-    this.router.navigate(['/About']);
-  }
-
-  Contact(){
-    this.onDisplay = 4;
-    this.router.navigate(['/Contact-Us']);
+    this.shoppingCartSrv.getCartLength().subscribe((itemsNoInCart)=>
+    {
+      this.itemsNo=itemsNoInCart;
+    })
   }
 }

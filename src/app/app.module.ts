@@ -21,6 +21,10 @@ import { ProductDetailsComponent } from './Components/order/master/product-detai
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { UserComponent } from './Components/user/user.component';
 import { HomeComponent } from './Components/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
+import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
+import { UpdateComponentComponent } from './Components/Admin/update-component/update-component.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +46,16 @@ import { HomeComponent } from './Components/home/home.component';
     ContactUsComponent,
     UserComponent,
     HomeComponent,
+    AddProductComponent,
+    AdminDashboardComponent,
+    UpdateComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

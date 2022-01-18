@@ -1,6 +1,6 @@
 
 export interface ICart{
-    ID: number;
+    id: number;
     Name: string;
     count: number;
     Price: number;

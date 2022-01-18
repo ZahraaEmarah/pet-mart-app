@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductServiceService } from 'src/app/Services/product-service.service';
-import {Location} from '@angular/common'
+import { Location } from '@angular/common'
+import { ProductAPIService } from 'src/app/Services/product-api.service';
+import { IProduct } from 'src/app/ViewModels/IProduct';
+import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,84 +12,112 @@ import {Location} from '@angular/common'
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  PID: number=0;
-  count:number=0;
-  constructor(private prdSrv: ProductServiceService, 
-    private activatedRoute: ActivatedRoute, 
-    private router:Router,
-    private location: Location) { }
+  PID: number = 0;
+  count: number = 0;
+  ViewInput: boolean = false;
+  private myProduct = <IProduct>{};
+
+  constructor(private prdSrv: ProductAPIService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private shoppingCartSrv: ShoppingCartService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((paramMap)=>{
-      this.PID=Number(paramMap.get("pid"));
-      this.count=Number(paramMap.get("pCount"));
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      this.PID = Number(paramMap.get("pid"));
+      this.count = Number(paramMap.get("pCount"));
       console.log(this.PID);
     });
+    this.prdSrv.getProductByID(this.PID)
+      .subscribe((myProduct) => {
+        this.myProduct = myProduct;
+      });
+    console.log(this.myProduct);
   }
 
-  getProd(){
-    return this.prdSrv.getByID(this.PID);
+  // getProd() {
+  //   this.prdSrv.getProductByID(this.PID)
+  //     .subscribe((myProduct) => {
+  //       this.myProduct = myProduct;
+  //     });
+  // }
+
+  getImg() {
+    return this.myProduct.img;
   }
 
-  getImg(){
-    return this.getProd()?.img;
+  getName() {
+    return this.myProduct.Name;
   }
 
-  getName(){
-    return this.getProd()?.Name;
+  getPrice() {
+    return this.myProduct.Price;
   }
 
-  getPrice(){
-    return this.getProd()?.Price;
+  getDescription() {
+    return this.myProduct.Name;
   }
 
-  getDescription(){
-    return this.getProd()?.Name;
+  getQuantity() {
+    return this.myProduct.Quantity;
   }
 
-  getQuantity(){
-    return this.getProd()?.Quantity;
+  Add() {
+    this.shoppingCartSrv.AddToCart(this.myProduct);
   }
 
-  Add(){
-    this.prdSrv.AddToCart(this.getProd()!);
-  }
-
-  getCountInCart(){
-    var foundIndex = this.prdSrv.getCart().findIndex(x => x.ID == this.PID)
-    if(foundIndex != -1){
-      return this.prdSrv.getCart()[foundIndex].count;
+  getCountInCart() {
+    var foundIndex = this.shoppingCartSrv.getCart().findIndex(x => x.id == this.PID)
+    if (foundIndex != -1) {
+      return this.shoppingCartSrv.getCart()[foundIndex].count;
     }
     return -1;
   }
 
-  Decrement(){
-    this.prdSrv.Decrement(this.prdSrv.getByID(this.PID)!);
+  Decrement() {
+    this.shoppingCartSrv.DecrementItem(this.myProduct);
   }
 
-  Increment(){
-    this.prdSrv.Increment(this.prdSrv.getByID(this.PID)!);
+  Increment() {
+    this.shoppingCartSrv.IncrementItem(this.myProduct);
   }
 
-  getNextProd(){
-    var nxtItem = this.prdSrv.getNext(this.PID);
-    this.router.navigate(['/Details', nxtItem.ID, nxtItem.Quantity]);
+  getNextProd() {
+    // var nxtItem = this.prdSrv.getNext(this.PID);
+    // if (nxtItem.ID != this.PID) {
+    //   this.router.navigate(['/Details', nxtItem.ID, nxtItem.Quantity]);
+    // }
   }
 
-  getPrevProd(){
-    var PrvItem = this.prdSrv.getPrev(this.PID);
-    this.router.navigate(['/Details', PrvItem.ID, PrvItem.Quantity]);
+  getPrevProd() {
+    // var PrvItem = this.prdSrv.getPrev(this.PID);
+    // this.router.navigate(['/Details', PrvItem.ID, PrvItem.Quantity]);
   }
 
-  isLast(){
-    if(this.prdSrv.getByID(this.PID + 1)){
+  isLast() {
+    if (this.prdSrv.getProductByID(this.PID + 1)) {
       return false;
     }
     return true;
   }
 
-  goBack()
-  {
+  goBack() {
     this.location.back();
+  }
+
+  Delete() {
+    if (confirm("Are you sure you want to Delete this product?") == true) {
+      this.prdSrv.deleteProduct(this.PID).subscribe({
+        next: (prd => {
+          this.router.navigate(['/Products'])
+        }),
+        error: (err) => {
+          console.log(err);
+        }
+      });;
+    } else {
+
+    }
   }
 }

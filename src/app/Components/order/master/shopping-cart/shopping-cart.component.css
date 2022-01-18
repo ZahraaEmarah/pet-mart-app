@@ -11,3 +11,9 @@ span{
     color: limegreen;
     font-weight: bold;
 }
+
+.ErrorMsg{
+    text-align: center; 
+    height: 100%; 
+    color: red;
+}

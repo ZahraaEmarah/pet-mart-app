@@ -1,1 +1,17 @@
-<p>home works!</p>
+
+<div>
+    <h2>Store Name: {{sInfo?.storeName}}</h2>
+    <h3>Our Branches:</h3>
+    <ul>
+        <li *ngFor="let item of sInfo.Branches"> {{item}}</li>
+    </ul>
+</div>
+<hr>
+Advertisments
+<div class="Ads" id="Ads">{{Ads}}</div>
+<hr>
+<div class="mb-3">
+    <label for="" class="form-label">Enter Your Feedback</label>
+    <input [(ngModel)]="clientFeedback" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+</div>
+<h3>You entered: {{clientFeedback}}</h3>

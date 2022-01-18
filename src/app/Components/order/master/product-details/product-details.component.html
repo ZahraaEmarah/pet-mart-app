@@ -32,6 +32,10 @@
         <button [disabled]="isLast()==true" class="col-1 mx-2 btn btn-primary btn-block"
             (click)="getNextProd()">next</button>
     </div>
+    <div class="m-3">
+        <button class="mx-2 btn btn-warning btn-block" routerLink="Admin/InsertProduct">Update</button>
+        <button class="mx-2 btn btn-danger btn-block" (click)="Delete()">Delete</button>
+    </div>
     <div class="row" style="text-align: center;">
         <button class="col-2 btn btn-primary btn-sm" (click)="goBack()">Back</button>
     </div>
