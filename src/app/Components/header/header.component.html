@@ -8,17 +8,18 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" aria-current="page" routerLink="/Products" routerLinkActive="active">Products</a>
                 <a [hidden]="isLogged" class="nav-link" href="#" routerLink="/Login" routerLinkActive="active">Login</a>
+                <a [hidden]="isLogged" class="nav-link" href="#" routerLink="/Register" routerLinkActive="active">Register</a>
                 <a [hidden]="!isLogged" class="nav-link" href="#" routerLink="/Login"
                     routerLinkActive="active">Logout</a>
-                <a class="nav-link" href="#" routerLink="/Admin/Dashboard"
+                <a [hidden]="!isLogged" class="nav-link" href="#" routerLink="/Admin/Dashboard"
                     routerLinkActive="active">Admin</a>
+                    <a [hidden]="!isLogged" class="nav-link" href="#" routerLink="/User/Profile"
+                    routerLinkActive="active">Profile</a>
+                    <a [hidden]="!isLogged" class="nav-link" href="#" routerLink="/User/Edit"
+                    routerLinkActive="active">Edit Profile</a>
             </div>
         </div>
     </div>
 </nav>
-<div>
-    <img [src]="imgURL" style="width: 100%;">
-</div>

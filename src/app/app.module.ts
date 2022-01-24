@@ -19,12 +19,13 @@ import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { ProductDetailsComponent } from './Components/order/master/product-details/product-details.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
-import { UserComponent } from './Components/user/user.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
 import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
-import { UpdateComponentComponent } from './Components/Admin/update-component/update-component.component';
+import { UserRegistrationComponent } from './Components/user-registration/user-registration.component';
+import { UserLoginComponent } from './Components/user-login/user-login.component';
+import { MainLayoutComponent } from './Components/Layout/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -44,11 +45,12 @@ import { UpdateComponentComponent } from './Components/Admin/update-component/up
     ErrorComponent,
     ProductDetailsComponent,
     ContactUsComponent,
-    UserComponent,
     HomeComponent,
     AddProductComponent,
     AdminDashboardComponent,
-    UpdateComponentComponent
+    UserRegistrationComponent,
+    UserLoginComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,

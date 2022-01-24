@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductServiceService } from 'src/app/Services/product-service.service';
 import { Location } from '@angular/common'
 import { ProductAPIService } from 'src/app/Services/product-api.service';
-import { IProduct } from 'src/app/ViewModels/IProduct';
+import { IProduct } from 'src/app/Models/IProduct';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
@@ -35,13 +35,6 @@ export class ProductDetailsComponent implements OnInit {
       });
     console.log(this.myProduct);
   }
-
-  // getProd() {
-  //   this.prdSrv.getProductByID(this.PID)
-  //     .subscribe((myProduct) => {
-  //       this.myProduct = myProduct;
-  //     });
-  // }
 
   getImg() {
     return this.myProduct.img;

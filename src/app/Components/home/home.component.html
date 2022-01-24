@@ -1,17 +1,32 @@
+<div class="container">
+    <div>
+        <img [src]="imgURL" style="width: 100%;">
+    </div>
 
-<div>
-    <h2>Store Name: {{sInfo?.storeName}}</h2>
-    <h3>Our Branches:</h3>
-    <ul>
-        <li *ngFor="let item of sInfo.Branches"> {{item}}</li>
-    </ul>
+    <div class="text-center p-5">
+        <h1> Most Liked</h1>
+        <button>prev</button>
+        <div appProductCard class="slider most-liked-box">
+            <img [src]="mostLiked.img">
+            <h3>{{mostLiked.Name}}</h3>
+        </div>
+        <button>next</button>
+    </div>
+    <!-- <div class="p-4">
+        <h1 style="text-align: center;">{{sInfo?.storeName}}</h1>
+        <h3>Our Branches:</h3>
+        <ul>
+            <li *ngFor="let item of sInfo.Branches"> {{item}}</li>
+        </ul>
+    </div>
+    <hr>
+    Advertisments
+    <div class="Ads" id="Ads">{{Ads}}</div>
+    <hr> -->
+    <!-- <div class="mb-3">
+        <label for="" class="form-label">Enter Your Feedback</label>
+        <input [(ngModel)]="clientFeedback" type="text" class="form-control" name="" id="" aria-describedby="helpId"
+            placeholder="">
+    </div>
+    <h3>You entered: {{clientFeedback}}</h3> -->
 </div>
-<hr>
-Advertisments
-<div class="Ads" id="Ads">{{Ads}}</div>
-<hr>
-<div class="mb-3">
-    <label for="" class="form-label">Enter Your Feedback</label>
-    <input [(ngModel)]="clientFeedback" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-</div>
-<h3>You entered: {{clientFeedback}}</h3>

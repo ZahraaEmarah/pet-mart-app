@@ -1,0 +1,30 @@
+<!-- <button [disabled]="isLogged" type="button" class="btn btn-primary m-3" (click)="login()">Login</button> -->
+
+<button [disabled]="!isLogged" type="button" class="btn btn-primary m-3" (click)="logout()">logout</button>
+
+<div class="container p-5">
+    <h1>Login</h1>
+    <form [formGroup]="registerFormGroup" (ngSubmit)="login()">
+
+        <div class=" mb-3 ">
+            <label for="uName" class="form-label ">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="uEmail " name="email "
+                [class.is-invalid]="email?.invalid && !email?.untouched" [class.is-valid]="email?.valid">
+            <div [hidden]="email?.valid || email?.untouched">
+                <div class="alert alert-warning" *ngIf="email?.errors?.['required']">This field is required</div>
+            </div>
+        </div>
+
+        <div class="mb-3 ">
+            <label for="uPass" class="form-label ">Password</label>
+            <input type="password" formControlName="password" class="form-control " id="uPass " name="pass "
+                [class.is-invalid]="password?.invalid && !password?.untouched" [class.is-valid]="password?.valid">
+            <div [hidden]="password?.valid || password?.untouched ">
+                <div class="alert alert-warning" *ngIf="password?.errors?.['required']">This field is required</div>
+            </div>
+        </div>
+
+        <button [disabled]="registerFormGroup.invalid " type="submit " class="btn btn-primary ">Login</button>
+
+    </form>
+</div>

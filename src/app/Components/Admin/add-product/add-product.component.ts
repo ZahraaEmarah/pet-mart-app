@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ProductAPIService } from 'src/app/Services/product-api.service';
-import { ICategory } from 'src/app/ViewModels/ICategory';
-import { IProduct } from 'src/app/ViewModels/IProduct';
+import { ICategory } from 'src/app/Models/ICategory';
+import { IProduct } from 'src/app/Models/IProduct';
 
 @Component({
   selector: 'app-add-product',

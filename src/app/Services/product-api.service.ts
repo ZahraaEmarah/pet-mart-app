@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ICart } from '../ViewModels/ICart';
-import { IProduct } from '../ViewModels/IProduct';
+import { ICart } from '../Models/ICart';
+import { IProduct } from '../Models/IProduct';
 
 @Injectable({
   providedIn: 'root'

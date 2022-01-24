@@ -1,0 +1,138 @@
+<div class="container p-5">
+    <h1>New Account</h1>
+    <form [formGroup]="registerFormGroup"  (ngSubmit)="register()">
+
+        <div class=" mb-3 ">
+            <label for="uName" class="form-label ">Full name</label>
+            <input type="text" formControlName="fullName" class="form-control" id="uName " name="name "
+                [class.is-invalid]="fullName?.invalid && !fullName?.untouched" [class.is-valid]="fullName?.valid">
+            <div [hidden]="fullName?.valid || fullName?.untouched">
+                <div class="alert alert-warning" *ngIf="fullName?.errors?.['required']">This field is required</div>
+                <div class="alert alert-warning" *ngIf="fullName?.errors?.['minlength']">Name must be 5 characters at
+                    least
+                </div>
+                <div class="alert alert-warning" *ngIf="fullName?.errors?.['forbiddenName']">
+                    {{fullName?.errors?.['forbiddenName'].value}} 'isn't allowed in full name'</div>
+            </div>
+
+        </div>
+        <div class="mb-3 ">
+            <label for="uEmail " class="form-label ">Email</label>
+            <input [class.is-invalid]="email?.invalid && !email?.untouched" [class.is-valid]="email?.valid"
+                type="email " formControlName="email" class="form-control " id="uEmail " name="email ">
+            <div [hidden]="email?.valid || email?.untouched ">
+                <div class="alert alert-warning" *ngIf="email?.errors?.['required']">This field is required</div>
+                <div class="alert alert-warning" *ngIf="email?.errors?.['UniqueEmail']">This email is already registered
+                </div>
+                <div class="alert alert-warning" *ngIf="email?.errors?.['email']">Incorrect email format</div>
+            </div>
+        </div>
+        <div class="mb-3 ">
+            <div formArrayName="mobileNumbers" *ngFor="let item of mobileNumbers.controls; let i=index">
+                <label for="uMobile " class="form-label ">Mobile Number</label>
+                <input [class.is-invalid]="mobileNumbers.controls[i]?.invalid && !mobileNumbers.controls[i]?.untouched"
+                    [class.is-valid]="mobileNumbers.controls[i]?.valid" type="text" [formControlName]="i"
+                    class="form-control">
+
+                <button type="button" class="btn btn-success d-block ms-auto" (click)="addMobileNoInput()">+</button>
+                <button *ngIf="mobileNumbers.controls.length > 1" type="button" class="btn btn-danger d-block ms-auto"
+                    (click)="RemoveMobileNoInput(i)">-</button>
+
+                <div [hidden]="mobileNumbers.controls[i]?.valid || mobileNumbers.controls[i]?.untouched ">
+                    <div class="alert alert-warning" *ngIf="mobileNumbers.controls[i]?.errors?.['required']">This field
+                        is required
+                    </div>
+                    <div class="alert alert-warning" *ngIf="mobileNumbers.controls[i]?.errors?.['pattern']"> Invalid
+                        Format
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div formGroupName="address">
+            <h3>Address</h3>
+            <div class="mb-3 ">
+                <label for="uCity" class="form-label ">City</label>
+                <input [class.is-invalid]="city?.invalid && !city?.untouched" [class.is-valid]="city?.valid" type="text"
+                    formControlName="city" class="form-control " id="uCity " name="city ">
+                <div [hidden]="city?.valid || city?.untouched ">
+                    <div class="alert alert-warning" *ngIf="city?.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+            <div class="mb-3 ">
+                <label for="uZipCode" class="form-label ">Zip Code</label>
+                <input type="number" formControlName="zipCode" class="form-control " id="uZipCode " name="ZipCode "
+                [class.is-invalid]="zipcode?.invalid && !zipcode?.untouched" [class.is-valid]="zipcode?.valid">
+                <div [hidden]="zipcode?.valid || zipcode?.untouched ">
+                    <div class="alert alert-warning" *ngIf="zipcode?.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+            <div class="mb-3 ">
+                <label for="uStreet" class="form-label ">Street</label>
+                <input type="text" formControlName="street" class="form-control " id="uStreet " name="Street "
+                [class.is-invalid]="street?.invalid && !street?.untouched" [class.is-valid]="street?.valid">
+                <div [hidden]="street?.valid || street?.untouched ">
+                    <div class="alert alert-warning" *ngIf="street?.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 ">
+            <label for="uPass" class="form-label ">Password</label>
+            <input type="password" formControlName="password" class="form-control " id="uPass " name="pass "
+            [class.is-invalid]="password?.invalid && !password?.untouched || registerFormGroup?.errors?.['passwordHasName']" [class.is-valid]="password?.valid">
+            <div [hidden]="password?.valid || password?.untouched ">
+                <div class="alert alert-warning" *ngIf="password?.errors?.['required']">This field is required</div>
+            </div>
+            <div class="alert alert-warning" *ngIf="registerFormGroup?.errors?.['passwordHasName']">Password cannot
+                contain username</div>
+        </div>
+        <div class="mb-3 ">
+            <label for="uConfPass" class="form-label ">Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control " id="uConfPass "
+                name="conf-pass "  [class.is-invalid]="confirmpassword?.invalid && !confirmpassword?.untouched || registerFormGroup?.errors?.['passwordMismatch']" [class.is-valid]="confirmpassword?.valid">
+            <div [hidden]="confirmpassword?.valid || confirmpassword?.untouched ">
+                <div class="alert alert-warning" *ngIf="confirmpassword?.errors?.['required']">This field is required
+                </div>
+            </div>
+            <div [hidden]="confirmpassword?.value == ''" class="alert alert-warning"
+                *ngIf="registerFormGroup?.errors?.['passwordMismatch']">Password
+                mismatch
+            </div>
+        </div>
+
+        <div class="btn-group d-block m-3" role="group" aria-label="Basic radio toggle button group">
+            Delivery options
+            <input type="radio" class="btn-check" formControlName="Anytime" (change)="updateValidation()" name="Anytime"
+                id="btnradio2" value="2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2">Anytime</label>
+
+            <input type="radio" class="btn-check" formControlName="Anytime" (change)="updateValidation()" name="Anytime"
+                id="btnradio3" value="1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3">Specific Days</label>
+            <div class="mb-3" *ngIf="Anytime?.value==1">
+                <label for="reachedThrough" class="form-label ">Delivery prefrence:</label>
+                <input type="text" formControlName="SpecificDays" class="form-control " id="reachedThrough"
+                    name="reachedTh">
+            </div>
+        </div>
+
+        <button [disabled]="registerFormGroup.invalid " type="submit " class="btn btn-primary ">Register</button>
+    </form>
+    <br>
+    <!-- <hr>
+    <div>
+    <h3>[To be removed] </h3>
+    <div>Testing Values:
+        <div>Form:{{registerFormGroup.value | json}}</div>
+        <div>Validation: {{registerFormGroup.get('email')?.errors | json}}
+            <br>Form errors: {{registerFormGroup.errors | json}}
+        </div>
+    </div>
+
+
+    <div>
+        <button type="button" class="btn btn-primary" (click)="fillForm()">Fill Form</button>
+    </div>
+
+</div>
+</div> -->

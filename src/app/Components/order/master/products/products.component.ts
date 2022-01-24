@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from 'src/app/ViewModels/Store';
-import { Discount } from 'src/app/ViewModels/Discounts';
-import { IProduct } from 'src/app/ViewModels/IProduct';
-import { ICategory } from 'src/app/ViewModels/ICategory';
+import { Store } from 'src/app/Models/Store';
+import { Discount } from 'src/app/Models/Discounts';
+import { IProduct } from 'src/app/Models/IProduct';
+import { ICategory } from 'src/app/Models/ICategory';
 import { Router } from '@angular/router';
 import { ProductAPIService } from 'src/app/Services/product-api.service';
 import { CategoryService } from 'src/app/Services/category.service';

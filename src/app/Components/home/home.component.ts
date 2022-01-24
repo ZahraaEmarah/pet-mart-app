@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, map, Subscription } from 'rxjs';
+import { filter, firstValueFrom, map, Subscription } from 'rxjs';
 import { ScheduledAdsService } from 'src/app/Services/scheduled-ads.service';
-import { Store } from 'src/app/ViewModels/Store';
-import { StoreInfo } from 'src/app/ViewModels/StoreInfo';
+import { Store } from 'src/app/Models/Store';
+import { StoreInfo } from 'src/app/Models/StoreInfo';
+import { IPet } from 'src/app/Models/IPet';
+import { PetServiceService } from 'src/app/Services/PetService/pet-service.service';
 
 @Component({
   selector: 'app-home',
@@ -15,35 +17,59 @@ export class HomeComponent implements OnInit {
   sInfo: Store;
   clientFeedback: string = "";
   Ads: string = "";
-  constructor(private schAds: ScheduledAdsService) {
+  imgURL: string;
+  petsList: IPet[] = [];
+  mostLiked = <IPet>{};
+
+  constructor(private schAds: ScheduledAdsService,
+    private petSrv: PetServiceService) {
+    this.imgURL = "assets/banner.jpg";
     this.sInfo = new Store("The Pet Store"
       , "https://picsum.photos/seed/picsum/500/150"
       , ["Egypt", "UK", "UAE"]
       , true);
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
 
-    let filteredObservable = this.schAds.getScheduledAds(2).pipe(
-      // filter((ad) => ad.includes("50%")),
-      // map((ad) =>ad)
-    );
+    this.getAllPets();
+    // let filteredObservable = this.schAds.getScheduledAds(2).pipe(
+    //   // filter((ad) => ad.includes("50%")),
+    //   // map((ad) =>ad)
+    // );
 
-    let adsSubscribtion = filteredObservable.subscribe(
-      {
-        next: (ad: string) => {
-          console.log(ad);
-          document.getElementById("Ads")!.innerHTML += "<h3>" + ad + "</h3>";
-        },
-        error: (err) => {
-          console.log(`Error: ${err}`);
-        },
-        complete: () => {
-          console.log("Ads finished...")
-        }
-      });
+    // let adsSubscribtion = filteredObservable.subscribe(
+    //   {
+    //     next: (ad: string) => {
+    //       console.log(ad);
+    //       document.getElementById("Ads")!.innerHTML += "<h3>" + ad + "</h3>";
+    //     },
+    //     error: (err) => {
+    //       console.log(`Error: ${err}`);
+    //     },
+    //     complete: () => {
+    //       console.log("Ads finished...")
+    //     }
+    //   });
 
-    this.subscriptionList.push(adsSubscribtion);
+    // this.subscriptionList.push(adsSubscribtion);
+  }
+
+  async getAllPets() {
+
+    this.petsList = await firstValueFrom(this.petSrv.getAllPets());
+    this.mostLiked = this.getMostLiked();
+    
+    console.log(this.petsList)
+    console.log(this.mostLiked)
+  }
+
+  getMostLiked(): IPet {
+    var max = this.petsList.reduce(function (a, b) {
+      return Math.max(a, b.likes);
+    }, 0);
+    console.log(max)
+    return this.petsList.find(x => x.likes == max)!;
   }
 
   ngOnDestroy(): void {

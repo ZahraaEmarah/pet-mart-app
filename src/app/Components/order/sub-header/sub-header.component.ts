@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from 'src/app/Services/category.service';
-import { Discount } from 'src/app/ViewModels/Discounts';
-import { ICategory } from 'src/app/ViewModels/ICategory';
-import { IProduct } from 'src/app/ViewModels/IProduct';
+import { Discount } from 'src/app/Models/Discounts';
+import { ICategory } from 'src/app/Models/ICategory';
+import { IProduct } from 'src/app/Models/IProduct';
 import { ProductsComponent } from '../master/products/products.component';
 
 @Component({

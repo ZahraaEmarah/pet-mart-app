@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductAPIService } from 'src/app/Services/product-api.service';
 import { ProductServiceService } from 'src/app/Services/product-service.service';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
-import { ICart } from 'src/app/ViewModels/ICart';
-import { IProduct } from 'src/app/ViewModels/IProduct';
+import { ICart } from 'src/app/Models/ICart';
+import { IProduct } from 'src/app/Models/IProduct';
 
 @Component({
   selector: 'app-shopping-cart',
