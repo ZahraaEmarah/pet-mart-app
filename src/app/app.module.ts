@@ -26,6 +26,7 @@ import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admi
 import { UserRegistrationComponent } from './Components/user-registration/user-registration.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { MainLayoutComponent } from './Components/Layout/main-layout/main-layout.component';
+import { AdoptComponent } from './Components/adopt/adopt.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MainLayoutComponent } from './Components/Layout/main-layout/main-layout
     AdminDashboardComponent,
     UserRegistrationComponent,
     UserLoginComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    AdoptComponent
   ],
   imports: [
     BrowserModule,

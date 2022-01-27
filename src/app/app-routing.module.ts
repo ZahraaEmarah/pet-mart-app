@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './Components/about/about.component';
 import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
 import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
+import { AdoptComponent } from './Components/adopt/adopt.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -26,7 +27,9 @@ const routes: Routes = [ //First match wins strategy
       { path: 'Products', component: SubHeaderComponent },
       { path: 'Products/:pid', component: ProductDetailsComponent },
       { path: 'Order', component: ShoppingCartComponent },
-      { path: 'AddProduct', component: AddProductComponent },
+      { path: 'Admin/InsertProduct', component: AddProductComponent },
+      { path: 'Products/:pid/Admin/InsertProduct', component: AddProductComponent },
+      { path: 'Adopt', component: AdoptComponent },
       {
         path: 'User',
         loadChildren: () => import('src/app/Components/User/user.module')

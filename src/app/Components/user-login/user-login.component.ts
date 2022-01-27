@@ -9,7 +9,7 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  isLogged: boolean = false;
+  isLogged: boolean = true;
   registerFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder, private usrAuth: UserAuthService, private router: Router) {

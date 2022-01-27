@@ -5,6 +5,7 @@ import { Store } from 'src/app/Models/Store';
 import { StoreInfo } from 'src/app/Models/StoreInfo';
 import { IPet } from 'src/app/Models/IPet';
 import { PetServiceService } from 'src/app/Services/PetService/pet-service.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,11 @@ export class HomeComponent implements OnInit {
   Ads: string = "";
   imgURL: string;
   petsList: IPet[] = [];
-  mostLiked = <IPet>{};
+  likedList: IPet[] = [];
+  index: number = 3;
+  heart: string = "assets/heart.png";
+  hearted: string = "assets/hearted.png";
+  split: number = 6;
 
   constructor(private schAds: ScheduledAdsService,
     private petSrv: PetServiceService) {
@@ -30,46 +35,40 @@ export class HomeComponent implements OnInit {
       , true);
   }
 
-  async ngOnInit() {
-
+  ngOnInit() {
     this.getAllPets();
-    // let filteredObservable = this.schAds.getScheduledAds(2).pipe(
-    //   // filter((ad) => ad.includes("50%")),
-    //   // map((ad) =>ad)
-    // );
-
-    // let adsSubscribtion = filteredObservable.subscribe(
-    //   {
-    //     next: (ad: string) => {
-    //       console.log(ad);
-    //       document.getElementById("Ads")!.innerHTML += "<h3>" + ad + "</h3>";
-    //     },
-    //     error: (err) => {
-    //       console.log(`Error: ${err}`);
-    //     },
-    //     complete: () => {
-    //       console.log("Ads finished...")
-    //     }
-    //   });
-
-    // this.subscriptionList.push(adsSubscribtion);
   }
 
   async getAllPets() {
-
     this.petsList = await firstValueFrom(this.petSrv.getAllPets());
-    this.mostLiked = this.getMostLiked();
-    
-    console.log(this.petsList)
-    console.log(this.mostLiked)
+    this.getMostLiked();
   }
 
-  getMostLiked(): IPet {
-    var max = this.petsList.reduce(function (a, b) {
-      return Math.max(a, b.likes);
-    }, 0);
-    console.log(max)
-    return this.petsList.find(x => x.likes == max)!;
+  getMostLiked() {
+    this.likedList = this.petsList.sort((a, b) => b.likes - a.likes).slice(0, 6);
+  }
+
+  Next() {
+    this.index = 0;
+    this.split = 3;
+  }
+
+  Prev() {
+    this.index = 3;
+    this.split = 6;
+  }
+
+  heartIt(item: IPet) {
+    const pet = (<HTMLInputElement>document.getElementById(item.id.toString())).src;
+    if (pet.includes(this.hearted)) {
+      (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.heart;
+      item.likes-=1;
+      this.petSrv.unlikePet(item.id);
+    } else {
+      (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.hearted;
+      item.likes+=1;
+      this.petSrv.likePet(item.id);
+    }
   }
 
   ngOnDestroy(): void {

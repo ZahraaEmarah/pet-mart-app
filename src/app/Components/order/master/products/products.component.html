@@ -1,9 +1,11 @@
 <div class="container">
     <div class="mt-3 row">
         <div [hidden]="selectedValue < 0" id="display">
-            <div appProductCard *ngFor="let item of ProductList"
-                class="box m-2 p-2" [ngClass]="{'warning': item.Quantity==1}" (click)="getProduct(item)">
-                <img [src]="item.img">
+            <div appProductCard *ngFor="let item of ProductList" class="box m-2 p-2"
+                [ngClass]="{'warning': item.Quantity==1}" (click)="getProduct(item)">
+                <div class="photo">
+                    <img [src]="item.img">
+                </div>
                 <h4>{{item.Name}}</h4>
                 <h6>{{item.Price | currency:'USD':'symbol'}}</h6>
                 <h6>{{item.Price | dollarToEgp: 10 | currency: 'EGP '}}</h6>
@@ -14,8 +16,8 @@
                 </div>
 
                 <div class="row px-5 mt-4" style="text-align: center;">
-                    <button *ngIf="getValue(item) == 0" [ngClass]="{'disabled': item.Quantity == 0}" type="button" class="btn btn-primary btn-block"
-                        (click)="AddToCart(item)">Add to Cart</button>
+                    <button *ngIf="getValue(item) == 0" [ngClass]="{'disabled': item.Quantity == 0}" type="button"
+                        class="btn btn-primary btn-block" (click)="AddToCart(item)">Add to Cart</button>
                     <div *ngIf="getValue(item) > 0" class="input-group">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-primary btn-number" (click)="Decrement(item)">-

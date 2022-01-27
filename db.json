@@ -1,0 +1,306 @@
+{
+  "Categories": [
+    {
+      "id": 0,
+      "Name": "All"
+    },
+    {
+      "id": 1,
+      "Name": "Dry Food"
+    },
+    {
+      "id": 2,
+      "Name": "Toys"
+    },
+    {
+      "id": 3,
+      "Name": "Accessories"
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "Name": "Portable bag 111",
+      "Quantity": 1,
+      "Price": 68.8,
+      "img": "assets/7.jpg",
+      "CategoryID": 3
+    },
+    {
+      "id": 2,
+      "Name": "Dry Food 1",
+      "Quantity": 2,
+      "Price": 55.9,
+      "img": "assets/1.jpg",
+      "CategoryID": 1
+    },
+    {
+      "id": 3,
+      "Name": "Toy33",
+      "Quantity": 147,
+      "Price": 19.9,
+      "img": "assets/6.jpg",
+      "CategoryID": 2
+    },
+    {
+      "id": 4,
+      "Name": "Dry Food 2",
+      "Quantity": 1,
+      "Price": 35.4,
+      "img": "assets/2.jpg",
+      "CategoryID": 1
+    },
+    {
+      "id": 5,
+      "Name": "Dry Food 3",
+      "Quantity": 56,
+      "Price": 45.7,
+      "img": "assets/3.jpg",
+      "CategoryID": 1
+    },
+    {
+      "id": 6,
+      "Name": "Toy1",
+      "Quantity": 43,
+      "Price": 16.2,
+      "img": "assets/4.jpg",
+      "CategoryID": 2
+    },
+    {
+      "id": 7,
+      "Name": "Pet House",
+      "Quantity": 109,
+      "Price": 79.9,
+      "img": "assets/9.jpg",
+      "CategoryID": 3
+    },
+    {
+      "id": 8,
+      "Name": "Toy2",
+      "Quantity": 1,
+      "Price": 13.4,
+      "img": "assets/5.jpg",
+      "CategoryID": 2
+    },
+    {
+      "id": 9,
+      "Name": "Dog Bed",
+      "Quantity": 85,
+      "Price": 66.5,
+      "img": "assets/8.jpg",
+      "CategoryID": 3
+    },
+    {
+      "img": "",
+      "Name": "New Product 2",
+      "Price": 23,
+      "Quantity": 3,
+      "CategoryID": "1",
+      "id": 11
+    },
+    {
+      "img": "",
+      "Name": "New Product 345",
+      "Price": 12,
+      "Quantity": 3,
+      "CategoryID": "2",
+      "id": 12
+    },
+    {
+      "img": "",
+      "Name": "New Product",
+      "Price": 67,
+      "Quantity": 678,
+      "CategoryID": "1",
+      "id": 13
+    },
+    {
+      "img": "",
+      "Name": "New Product",
+      "Price": 234,
+      "Quantity": 6,
+      "CategoryID": "2",
+      "id": 14
+    },
+    {
+      "img": "",
+      "Name": "bag",
+      "Price": 77,
+      "Quantity": 45,
+      "CategoryID": "3",
+      "id": 15
+    },
+    {
+      "img": "",
+      "Name": "Zahraa",
+      "Price": 78,
+      "Quantity": 9,
+      "CategoryID": "0",
+      "id": 16
+    },
+    {
+      "img": "",
+      "Name": "New Product",
+      "Price": 89,
+      "Quantity": 9,
+      "CategoryID": "0",
+      "id": 17
+    },
+    {
+      "img": "",
+      "Name": "Dog Bed",
+      "Price": 89,
+      "Quantity": 9,
+      "CategoryID": "1",
+      "id": 18
+    }
+  ],
+  "Users": [
+    {
+      "fullName": "Zahraa",
+      "email": "emarahzahraa@gmail.com",
+      "mobileNumbers": [
+        "123456"
+      ],
+      "address": {
+        "city": "Cairo",
+        "zipCode": 12345,
+        "street": "alexandria"
+      },
+      "password": "123",
+      "confirmPassword": "123",
+      "reachedThroughOther": "3",
+      "reachedThroughOtherReason": "",
+      "id": 1,
+      "pets": []
+    },
+    {
+      "fullName": "zahraa",
+      "email": "emarahzahraa@gmail.c",
+      "mobileNumbers": [
+        "01019715417"
+      ],
+      "address": {
+        "city": "Cairo",
+        "zipCode": 12345,
+        "street": "alexandria"
+      },
+      "password": "zahra",
+      "confirmPassword": "zahra",
+      "Anytime": "1",
+      "SpecificDays": "Monday",
+      "id": 2,
+      "pets": []
+    }
+  ],
+  "Pets": [
+    {
+      "id": 1,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/1.jpg",
+      "type": "dog",
+      "breed": "good boy",
+      "age": "5 months",
+      "color": "black",
+      "vaccinated": true,
+      "likes": 20
+    },
+    {
+      "id": 2,
+      "ownerID": 2,
+      "Name": "catto",
+      "img": "assets/pets/2.jpg",
+      "type": "cat",
+      "breed": "good breed",
+      "age": "2yrs",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 200
+    },
+    {
+      "id": 3,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/3.jpg",
+      "type": "dog",
+      "breed": "dog breed",
+      "age": "2 months",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 404
+    },
+    {
+      "id": 4,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/4.jpg",
+      "type": "dog",
+      "breed": "good boy",
+      "age": "5 months",
+      "color": "black",
+      "vaccinated": true,
+      "likes": 2000
+    },
+    {
+      "id": 5,
+      "ownerID": 2,
+      "Name": "catto",
+      "img": "assets/pets/5.jpg",
+      "type": "cat",
+      "breed": "good breed",
+      "age": "2yrs",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 70
+    },
+    {
+      "id": 6,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/6.jpg",
+      "type": "dog",
+      "breed": "dog breed",
+      "age": "2 months",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 11
+    },
+    {
+      "id": 7,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/7.jpg",
+      "type": "dog",
+      "breed": "good boy",
+      "age": "5 months",
+      "color": "black",
+      "vaccinated": true,
+      "likes": 2
+    },
+    {
+      "id": 8,
+      "ownerID": 2,
+      "Name": "catto",
+      "img": "assets/pets/8.jpg",
+      "type": "cat",
+      "breed": "good breed",
+      "age": "2yrs",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 6
+    },
+    {
+      "id": 9,
+      "ownerID": 2,
+      "Name": "doggo",
+      "img": "assets/pets/9.jpg",
+      "type": "dog",
+      "breed": "dog breed",
+      "age": "2 months",
+      "color": "greyish",
+      "vaccinated": true,
+      "likes": 4
+    }
+  ]
+}

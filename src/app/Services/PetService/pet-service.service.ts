@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IPet } from 'src/app/Models/IPet';
 
@@ -41,5 +41,21 @@ export class PetServiceService {
 
   deletePet(petID: number) {
     return this.httpClient.delete<IPet>(`${environment.API_Base_URL}/Pets/${petID}`);
+  }
+
+  async likePet(petID: number) {
+    var myPet= <IPet> {};
+    myPet = await firstValueFrom(this.getPetByID(petID));
+    myPet.likes += 1;
+    await firstValueFrom(this.putPet(petID, myPet));
+    console.log(myPet)
+  }
+
+  async unlikePet(petID: number) {
+    var myPet= <IPet> {};
+    myPet = await firstValueFrom(this.getPetByID(petID));
+    myPet.likes -= 1;
+    await firstValueFrom(this.putPet(petID, myPet));
+    console.log(myPet)
   }
 }

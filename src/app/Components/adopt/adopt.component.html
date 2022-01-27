@@ -1,0 +1,14 @@
+<div class="container">
+    <div appProductCard *ngFor="let item of petsList let i=index" class="m-2 slider most-liked-box">
+            <div class="mt-3 photo">
+                <img [src]="item.img">
+            </div>
+            <h3>{{item.Name}}</h3>
+            <h5>{{item.age}}</h5>
+            <h6>{{item.type}}</h6>
+            <h6>{{item.breed}}</h6>
+            <button class="btn btn-default">
+                <img class="m-1" [src]="heart" width="20" [id]="item.id" (click)="heartIt(item)" />{{item.likes}}
+            </button>
+    </div>
+</div>
