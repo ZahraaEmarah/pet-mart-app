@@ -10,16 +10,16 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
 export class HeaderComponent implements OnInit {
 
   imgURL: string;
-  isLogged=false;
+  isLogged = false;
+  isHomePage = true;
 
   constructor(private usrAuthSrv: UserAuthService, private router: Router) {
     this.imgURL = "assets/banner.jpg";
-   }
+  }
 
   ngOnInit(): void {
-    this.usrAuthSrv.isLoggedSubject().subscribe((loginStatus)=>
-    {
-      this.isLogged=loginStatus;
+    this.usrAuthSrv.isLoggedSubject().subscribe((loginStatus) => {
+      this.isLogged = loginStatus;
     })
   }
 }

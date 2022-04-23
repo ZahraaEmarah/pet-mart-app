@@ -6,6 +6,7 @@ import { StoreInfo } from 'src/app/Models/StoreInfo';
 import { IPet } from 'src/app/Models/IPet';
 import { PetServiceService } from 'src/app/Services/PetService/pet-service.service';
 import { HeaderComponent } from '../header/header.component';
+import { UserAuthService } from 'src/app/Services/user-auth.service';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +26,11 @@ export class HomeComponent implements OnInit {
   heart: string = "assets/heart.png";
   hearted: string = "assets/hearted.png";
   split: number = 6;
+  isLogged: boolean = true;
 
   constructor(private schAds: ScheduledAdsService,
-    private petSrv: PetServiceService) {
-    this.imgURL = "assets/banner.jpg";
+    private petSrv: PetServiceService, private usrAuthSrv: UserAuthService) {
+    this.imgURL = "assets/newBanner.jpg";
     this.sInfo = new Store("The Pet Store"
       , "https://picsum.photos/seed/picsum/500/150"
       , ["Egypt", "UK", "UAE"]
@@ -37,6 +39,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getAllPets();
+
+    this.usrAuthSrv.isLoggedSubject().subscribe((loginStatus) => {
+      this.isLogged = loginStatus;
+    })
   }
 
   async getAllPets() {
@@ -59,15 +65,19 @@ export class HomeComponent implements OnInit {
   }
 
   heartIt(item: IPet) {
-    const pet = (<HTMLInputElement>document.getElementById(item.id.toString())).src;
-    if (pet.includes(this.hearted)) {
-      (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.heart;
-      item.likes-=1;
-      this.petSrv.unlikePet(item.id);
-    } else {
-      (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.hearted;
-      item.likes+=1;
-      this.petSrv.likePet(item.id);
+    if (this.isLogged) {
+      const pet = (<HTMLInputElement>document.getElementById(item.id.toString())).src;
+      if (pet.includes(this.hearted)) {
+        (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.heart;
+        item.likes -= 1;
+        this.petSrv.unlikePet(item.id);
+      } else {
+        (<HTMLInputElement>document.getElementById(item.id.toString())).src = this.hearted;
+        item.likes += 1;
+        this.petSrv.likePet(item.id);
+      }
+    }else{
+      alert('you must login first')
     }
   }
 

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './Components/about/about.component';
 import { AddProductComponent } from './Components/Admin/add-product/add-product.component';
 import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
-import { AdoptComponent } from './Components/adopt/adopt.component';
+import { AdoptComponent } from './Components/Pets/adopt/adopt.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -14,6 +14,8 @@ import { ShoppingCartComponent } from './Components/order/master/shopping-cart/s
 import { SubHeaderComponent } from './Components/order/sub-header/sub-header.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { UserRegistrationComponent } from './Components/user-registration/user-registration.component';
+import { PetsDashboardComponent } from './Components/Pets/pets-dashboard/pets-dashboard.component';
+import { ChatComponent } from './Components/chat/chat.component';
 
 const routes: Routes = [ //First match wins strategy
   { path: 'Login', component: UserLoginComponent },
@@ -30,6 +32,8 @@ const routes: Routes = [ //First match wins strategy
       { path: 'Admin/InsertProduct', component: AddProductComponent },
       { path: 'Products/:pid/Admin/InsertProduct', component: AddProductComponent },
       { path: 'Adopt', component: AdoptComponent },
+      { path: 'PetsDashboard', component: PetsDashboardComponent },
+      { path: 'Messages', component: ChatComponent },
       {
         path: 'User',
         loadChildren: () => import('src/app/Components/User/user.module')

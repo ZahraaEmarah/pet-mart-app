@@ -26,7 +26,10 @@ import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admi
 import { UserRegistrationComponent } from './Components/user-registration/user-registration.component';
 import { UserLoginComponent } from './Components/user-login/user-login.component';
 import { MainLayoutComponent } from './Components/Layout/main-layout/main-layout.component';
-import { AdoptComponent } from './Components/adopt/adopt.component';
+import { AdoptComponent } from './Components/Pets/adopt/adopt.component';
+import { PetsDashboardComponent } from './Components/Pets/pets-dashboard/pets-dashboard.component';
+import { PetControllerComponent } from './Components/Pets/pet-controller/pet-controller.component';
+import { ChatComponent } from './Components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { AdoptComponent } from './Components/adopt/adopt.component';
     UserRegistrationComponent,
     UserLoginComponent,
     MainLayoutComponent,
-    AdoptComponent
+    AdoptComponent,
+    PetsDashboardComponent,
+    PetControllerComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

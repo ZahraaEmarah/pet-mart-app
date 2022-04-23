@@ -38,7 +38,7 @@ export class ShoppingCartService {
   IncrementItem(item: IProduct) {
     var foundIndex = this.shoppingCart.findIndex(x => x.id == item.id);
     if (foundIndex != -1) {
-      if (item.Quantity > 1) {
+      if (item.Quantity > 1 && this.shoppingCart[foundIndex].count < item.Quantity) {
         this.shoppingCart[foundIndex].count += 1;
         this.shoppingCart[foundIndex].TPrice += item.Price;
       }

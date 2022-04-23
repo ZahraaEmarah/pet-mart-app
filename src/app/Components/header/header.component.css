@@ -1,0 +1,16 @@
+a{
+    font-size: large;
+    font-weight: bolder;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+a.nav-link{
+    color: #40C6E7 !important;
+}
+
+a.navbar-brand{
+    color: white;
+}
