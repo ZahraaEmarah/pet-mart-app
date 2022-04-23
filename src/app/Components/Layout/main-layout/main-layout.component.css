@@ -1,9 +1,9 @@
 .bg-img {
-    background-image: url("../../../../assets/nav.jpg");
-    height: 50px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    background-color: #F0BF13;
+    color: white !important;
     /* z-index: -100; */
+}
+
+a:host{
+    color: white;
 }
