@@ -204,7 +204,7 @@
       "age": "5 months",
       "color": "black",
       "vaccinated": true,
-      "likes": 25
+      "likes": 26
     },
     {
       "id": 2,
@@ -216,7 +216,7 @@
       "age": "2yrs",
       "color": "greyish",
       "vaccinated": true,
-      "likes": 204
+      "likes": 205
     },
     {
       "id": 3,
@@ -228,7 +228,7 @@
       "age": "2 months",
       "color": "greyish",
       "vaccinated": true,
-      "likes": 407
+      "likes": 408
     },
     {
       "id": 4,

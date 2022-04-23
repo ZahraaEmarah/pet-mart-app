@@ -1,7 +1,10 @@
+
+
 .bg-img {
     background-image: url("../../../assets/newBanner.jpg");
 
-    height: 720px;
+    height: 1500px;
+    width: auto;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -99,4 +102,15 @@ img {
     height: 45px;
     border: 1px solid #40C6E7;
     border-radius: 24px;
+}
+
+.liked{
+    margin-top: 50%;
+}
+
+.liked h1{
+    color: white;
+    font-weight:400 !important;
+    font-size: 2.5rem !important;
+    font-family: 'Luckiest Guy', 'cursive' !important;
 }

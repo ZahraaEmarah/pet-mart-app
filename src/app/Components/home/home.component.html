@@ -1,34 +1,36 @@
-<div class="bg-img">
-    <app-header></app-header>
-    <div class="text-title">
-        <h1>PET SHOP</h1>
-        <h3>Adopt a Furbaby!</h3>
-        <div class="buttons">
-            <button routerLink="/Adopt">Adopt</button>
-            <button routerLink="/Products">Shop</button>
+<div style="height:100%; background-color: #E4BC29;">
+    <div class="bg-img">
+        <app-header></app-header>
+        <div class="text-title">
+            <h1>PET SHOP</h1>
+            <h3>Adopt a Furbaby!</h3>
+            <div class="buttons">
+                <button routerLink="/Adopt">Adopt</button>
+                <button routerLink="/Products">Shop</button>
+            </div>
+        </div>
+        <div class="liked text-center p-5">
+            <h1>Most Liked Pets</h1>
+            <button class="prev btn btn-default">
+                <img src="assets/right-arrow.png" width="40" (click)="Prev()" />
+            </button>
+            <div appProductCard *ngFor="let item of likedList let i=index" class="m-3 slider most-liked-box"
+                [hidden]="i < split && i >= index">
+                <div class="mt-3 photo">
+                    <img [src]="item.img">
+                </div>
+                <h3>{{item.Name}}</h3>
+                <h5>{{item.age}}</h5>
+                <h6>{{item.type}}</h6>
+                <h6>{{item.breed}}</h6>
+                <button class="btn btn-default">
+                    <img class="m-1" [src]="heart" width="20" [id]="item.id" (click)="heartIt(item)" />{{item.likes}}
+                </button>
+            </div>
+            <!-- <button class="btn btn-primary" (click)="Next()">next</button>  -->
+            <button class="btn btn-default">
+                <img src="assets/right-arrow.png" width="40" (click)="Next()" />
+            </button>
         </div>
     </div>
 </div>
-<!-- <div class="text-center p-5">
-    <h1>Most Liked Pets</h1>
-    <button class="prev btn btn-default">
-        <img src="assets/right-arrow.png" width="40" (click)="Prev()" />
-    </button>
-    <div appProductCard *ngFor="let item of likedList let i=index" class="m-3 slider most-liked-box"
-        [hidden]="i < split && i >= index">
-        <div class="mt-3 photo">
-            <img [src]="item.img">
-        </div>
-        <h3>{{item.Name}}</h3>
-        <h5>{{item.age}}</h5>
-        <h6>{{item.type}}</h6>
-        <h6>{{item.breed}}</h6>
-        <button class="btn btn-default">
-            <img class="m-1" [src]="heart" width="20" [id]="item.id" (click)="heartIt(item)" />{{item.likes}}
-        </button>
-    </div>
-    <button class="btn btn-primary" (click)="Next()">next</button> 
-    <button class="btn btn-default">
-        <img src="assets/right-arrow.png" width="40" (click)="Next()" />
-    </button>
-</div> -->
