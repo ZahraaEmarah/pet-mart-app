@@ -1,19 +1,109 @@
+@media (max-width: 991px) {
+    .sub-bg-img {
+        width: 330px;
+    }
 
+    .bg-img {
+        height: 530px;
+    }
+
+    .main-slider-area {
+        height: 442px;
+    }
+
+    .circle {
+        height: 280px;
+        width: 280px;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 1199px) {
+    .sub-bg-img {
+        width: 400px;
+    }
+
+    .bg-img {
+        height: 600px;
+    }
+
+    .main-slider-area {
+        height: 512px;
+    }
+
+    .circle {
+        height: 300px;
+        width: 300px;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .circle {
+        height: 500px;
+        width: 500px;
+        z-index: 1;
+    }
+}
 
 .bg-img {
-    background-image: url("../../../assets/newBanner.jpg");
+    background-image: url("../../../assets/slider-bg.webp");
 
-    height: 1500px;
     width: auto;
+    height: 796px;
 
     /* Center and scale the image nicely */
-    background-position: center;
+    align-items: center;
+    background-position: top left 5px;
     background-repeat: no-repeat;
     background-size: cover;
 
     /* Needed to position the navbar */
     position: relative;
-    /* z-index: -100; */
+}
+
+.main-slider-area {
+    height: 708px;
+    /* display: flex;
+    flex-wrap: wrap;
+    align-items: center; */
+}
+
+.main-slider-area .picture-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.main-slider-area .text-area {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.sub-bg-img {
+    opacity: 1;
+    height: auto;
+    max-width: 100%;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.circle {
+    background-color: #ffd868;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+
+    z-index: 1;
 }
 
 .Ads {
@@ -79,7 +169,7 @@ img {
     font-weight: bold !important;
     font-size: 4rem !important;
     font-family: 'Luckiest Guy', 'cursive' !important;
-    color: #40C6E7;
+    color: rgb(255, 255, 255);
 }
 
 .text-title h3 {
@@ -90,23 +180,26 @@ img {
     font-size: 3.5rem !important;
 }
 
-.buttons{
+.buttons {
     margin: auto;
 }
 
 .text-title .buttons button {
-    color: #40C6E7;
+    color: purple;
     background-color: white;
     margin: 0.5rem;
     width: 120px;
     height: 45px;
-    border: 1px solid #40C6E7;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 24px;
 }
 
-.text-title p{
-    margin-top: 55%;
-    margin-right: 30%;
+button:hover{
+    cursor: pointer;
+}
+
+.text-title p {
+    /* margin-right: 5%; */
     color: red;
     font-family: 'Allura', cursive;
     font-family: 'Luckiest Guy', cursive;
@@ -115,13 +208,9 @@ img {
     font-weight: bolder;
 }
 
-.liked{
-    margin-top: 50%;
-}
-
-.liked h1{
-    color: white;
-    font-weight:400 !important;
+.liked h1 {
+    color: purple;
+    font-weight: 400 !important;
     font-size: 2.5rem !important;
     font-family: 'Luckiest Guy', 'cursive' !important;
 }

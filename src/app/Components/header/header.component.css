@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1199px) {
+    .header-area {
+      height: 88px;
+    }
+}
+
 a{
     font-size: large;
     font-weight: bolder;
@@ -8,9 +14,20 @@ a:hover{
 }
 
 a.nav-link{
-    color: #40C6E7 !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 a.navbar-brand{
     color: white;
+}
+
+.header-area {
+    background-color: transparent;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    padding: 0;
+    box-sizing: border-box;
+    height: 88px;
 }

@@ -1,17 +1,29 @@
-<div style="height:100%; background-color: #E4BC29;">
+<div class="">
     <div class="bg-img">
-        <app-header></app-header>
-        <div class="text-title">
-            <h1>PET SHOP</h1>
-            <h3>Adopt a Furbaby!</h3>
-            <div class="buttons">
-                <button routerLink="/Adopt">Adopt</button>
-                <button routerLink="/Products">Shop</button>
+        <div class="row">
+            <app-header></app-header>
+        </div>
+        <div class="row main-slider-area">
+            <div class="text-title col-sm text-area">
+                <div>
+                    <h1>PET SHOP</h1>
+                    <h3>Adopt a Furbaby!</h3>
+                    <div class="buttons">
+                        <button class="main-header-btn" routerLink="/Adopt">Adopt</button>
+                        <button class="main-header-btn" routerLink="/Products">Shop</button>
+                    </div>
+                    <div>
+                        <p>Special Offer <br> Discount today</p>
+                    </div>
+                </div>
             </div>
-            <p>Special Offer <br> Discount today</p>
+            <div class="col-sm picture-area">
+                <div class="circle"></div>
+                <img class="sub-bg-img" src="assets/slider-01.webp" />
+            </div>
         </div>
         <div class="liked text-center p-5">
-            <h1>Most Liked Pets</h1>
+            <h1>☆ Rising Stars ☆</h1>
             <button class="prev btn btn-default">
                 <img src="assets/right-arrow.png" width="40" (click)="Prev()" />
             </button>

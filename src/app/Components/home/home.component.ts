@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private schAds: ScheduledAdsService,
     private petSrv: PetServiceService, private usrAuthSrv: UserAuthService) {
-    this.imgURL = "assets/newBanner.jpg";
+    this.imgURL = "assets/slider-bg.webp";
     this.sInfo = new Store("The Pet Store"
       , "https://picsum.photos/seed/picsum/500/150"
       , ["Egypt", "UK", "UAE"]
