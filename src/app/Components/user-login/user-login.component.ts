@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/Services/user-auth.service';
 
@@ -10,9 +10,9 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
 })
 export class UserLoginComponent implements OnInit {
   isLogged: boolean = true;
-  registerFormGroup: FormGroup;
+  registerFormGroup: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder, private usrAuth: UserAuthService, private router: Router) {
+  constructor(private fb: UntypedFormBuilder, private usrAuth: UserAuthService, private router: Router) {
     this.registerFormGroup = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],

@@ -1,6 +1,6 @@
-import { AbstractControl, FormGroup } from "@angular/forms";
+import { AbstractControl, UntypedFormGroup } from "@angular/forms";
 
-export function passwordMatchValidator(control: FormGroup) {
+export function passwordMatchValidator(control: UntypedFormGroup) {
     const pass = control.get('password');
     const confirmPassword = control.get('confirmPassword');
 

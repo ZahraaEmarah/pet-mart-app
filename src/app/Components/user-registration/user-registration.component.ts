@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, EmailValidator, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, EmailValidator, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { forbiddenNameValidator } from 'src/app/CustomValidators/forbiddenName.validator';
@@ -16,12 +16,12 @@ import { IUser } from 'src/app/Models/IUser';
 })
 export class UserRegistrationComponent implements OnInit {
 
-  registerFormGroup: FormGroup;
+  registerFormGroup: UntypedFormGroup;
   fetchedEmail: string = '';
   users: IUser[] = [];
   private subscriptionList: Subscription[] = [];
 
-  constructor(private fb: FormBuilder, private userAuthSrv: UserAuthService, private router: Router) {
+  constructor(private fb: UntypedFormBuilder, private userAuthSrv: UserAuthService, private router: Router) {
     this.registerFormGroup = fb.group({
       fullName: ['', [Validators.required, Validators.minLength(5), forbiddenNameValidator(/user/)]],
       email: ['', [Validators.required, Validators.email], uniqueEmailValidator(userAuthSrv)],
@@ -81,12 +81,12 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   get mobileNumbers() {
-    const mobileNoArr: FormArray = this.registerFormGroup.get('mobileNumbers') as FormArray;
+    const mobileNoArr: UntypedFormArray = this.registerFormGroup.get('mobileNumbers') as UntypedFormArray;
     return mobileNoArr;
   }
 
   mobileNumberEntry(index: number) {
-    const mobileNoArr: FormArray = this.registerFormGroup.get('mobileNumbers') as FormArray;
+    const mobileNoArr: UntypedFormArray = this.registerFormGroup.get('mobileNumbers') as UntypedFormArray;
     return this.mobileNumbers.controls[index];
   }
 
@@ -113,13 +113,13 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   addMobileNoInput() {
-    const mobileNoArr = this.registerFormGroup.get('mobileNumbers') as FormArray;
-    mobileNoArr.push(new FormControl(''));
+    const mobileNoArr = this.registerFormGroup.get('mobileNumbers') as UntypedFormArray;
+    mobileNoArr.push(new UntypedFormControl(''));
     this.AddMobileNumberValidator();
   }
 
   RemoveMobileNoInput(index: number) {
-    const mobileNoArr = this.registerFormGroup.get('mobileNumbers') as FormArray;
+    const mobileNoArr = this.registerFormGroup.get('mobileNumbers') as UntypedFormArray;
     mobileNoArr.removeAt(index);
   }
 
