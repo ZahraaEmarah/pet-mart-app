@@ -21,7 +21,7 @@ export class UserRegistrationComponent implements OnInit {
   users: IUser[] = [];
   private subscriptionList: Subscription[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private userAuthSrv: UserAuthService, private router: Router) {
+  constructor(fb: UntypedFormBuilder, private userAuthSrv: UserAuthService, private router: Router) {
     this.registerFormGroup = fb.group({
       fullName: ['', [Validators.required, Validators.minLength(5), forbiddenNameValidator(/user/)]],
       email: ['', [Validators.required, Validators.email], uniqueEmailValidator(userAuthSrv)],

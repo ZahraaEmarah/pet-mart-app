@@ -30,15 +30,15 @@
         <div class="mb-3 ">
             <div formArrayName="mobileNumbers" *ngFor="let item of mobileNumbers.controls; let i=index">
                 <label for="uMobile " class="form-label ">Mobile Number</label>
-                <input [class.is-invalid]="mobileNumbers.controls[i]?.invalid && !mobileNumbers.controls[i]?.untouched"
-                    [class.is-valid]="mobileNumbers.controls[i]?.valid" type="text" [formControlName]="i"
+                <input [class.is-invalid]="mobileNumbers.controls[i].invalid && !mobileNumbers.controls[i].untouched"
+                    [class.is-valid]="mobileNumbers.controls[i].valid" type="text" [formControlName]="i"
                     class="form-control">
 
                 <button type="button" class="btn btn-success d-block ms-auto" (click)="addMobileNoInput()">+</button>
                 <button *ngIf="mobileNumbers.controls.length > 1" type="button" class="btn btn-danger d-block ms-auto"
                     (click)="RemoveMobileNoInput(i)">-</button>
 
-                <div [hidden]="mobileNumbers.controls[i]?.valid || mobileNumbers.controls[i]?.untouched ">
+                <div [hidden]="mobileNumbers.controls[i].valid || mobileNumbers.controls[i].untouched ">
                     <div class="alert alert-warning" *ngIf="mobileNumbers.controls[i]?.errors?.['required']">This field
                         is required
                     </div>
