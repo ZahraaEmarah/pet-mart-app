@@ -1,8 +1,23 @@
-body{
+body {
     height: 100%;
 }
-.footer{
+
+.footer {
     position: static;
     bottom: 0;
     width: 100%;
+    color: white;
+}
+
+p {
+    width: 75%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffd868;
 }
