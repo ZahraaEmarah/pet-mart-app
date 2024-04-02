@@ -79,7 +79,7 @@
         <div class="mb-3 ">
             <label for="uPass" class="form-label ">Password</label>
             <input type="password" formControlName="password" class="form-control " id="uPass " name="pass "
-            [class.is-invalid]="password?.invalid && !password?.untouched || registerFormGroup?.errors?.['passwordHasName']" [class.is-valid]="password?.valid">
+            [class.is-invalid]="password?.invalid && !password?.untouched || registerFormGroup.errors?.['passwordHasName']" [class.is-valid]="password?.valid">
             <div [hidden]="password?.valid || password?.untouched ">
                 <div class="alert alert-warning" *ngIf="password?.errors?.['required']">This field is required</div>
             </div>
@@ -89,7 +89,7 @@
         <div class="mb-3 ">
             <label for="uConfPass" class="form-label ">Confirm Password</label>
             <input type="password" formControlName="confirmPassword" class="form-control " id="uConfPass "
-                name="conf-pass "  [class.is-invalid]="confirmpassword?.invalid && !confirmpassword?.untouched || registerFormGroup?.errors?.['passwordMismatch']" [class.is-valid]="confirmpassword?.valid">
+                name="conf-pass "  [class.is-invalid]="confirmpassword?.invalid && !confirmpassword?.untouched || registerFormGroup.errors?.['passwordMismatch']" [class.is-valid]="confirmpassword?.valid">
             <div [hidden]="confirmpassword?.valid || confirmpassword?.untouched ">
                 <div class="alert alert-warning" *ngIf="confirmpassword?.errors?.['required']">This field is required
                 </div>

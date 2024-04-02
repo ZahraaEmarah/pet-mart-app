@@ -6,4 +6,5 @@ export interface IProduct{
     Price: number;
     img: string;
     CategoryID: number;
+    OrderedCount: number;
 }

@@ -28,6 +28,10 @@ export class ProductAPIService {
     return this.httpClient.get<IProduct[]>(`${environment.API_Base_URL}/Products?CategoryID=${cID}`);
   }
 
+  filterProducts(filter: string): Observable<IProduct[]> {
+    return this.httpClient.get<IProduct[]>(`${environment.API_Base_URL}/Products?CategoryID=${filter}`);
+  }
+
   getProductByID(pid: number): Observable<IProduct> {
     return this.httpClient.get<IProduct>(`${environment.API_Base_URL}/Products/${pid}`);
   }

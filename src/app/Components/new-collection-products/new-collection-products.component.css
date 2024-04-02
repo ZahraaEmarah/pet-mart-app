@@ -1,0 +1,23 @@
+.title {
+    color: purple;
+    font-weight: 400 !important;
+    font-size: 2.5rem !important;
+    font-family: 'Luckiest Guy', 'cursive' !important;
+}
+
+.filter button {
+    margin: 30px;
+    padding: 8px 19px 7px;
+    font-size: large;
+}
+
+button{
+    border: none;
+    background-color: white;
+}
+
+.active{
+    border: 2px dashed transparent;
+    border-color: #721b65;
+    border-radius: 50px;
+}

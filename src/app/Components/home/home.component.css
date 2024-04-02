@@ -186,12 +186,13 @@ img {
 
 .text-title .buttons button {
     color: purple;
-    background-color: white;
+    background-color: #ffd868;
     margin: 0.5rem;
     width: 120px;
     height: 45px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 24px;
+    font-weight: bold;
 }
 
 button:hover{

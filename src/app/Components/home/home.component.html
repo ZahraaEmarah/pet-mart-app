@@ -6,14 +6,15 @@
         <div class="row main-slider-area">
             <div class="text-title col-sm text-area">
                 <div>
-                    <h1>PET SHOP</h1>
+                    <h1>The Pet Shop</h1>
                     <h3>Adopt a Furbaby!</h3>
                     <div class="buttons">
                         <button class="main-header-btn" routerLink="/Adopt">Adopt</button>
                         <button class="main-header-btn" routerLink="/Products">Shop</button>
                     </div>
                     <div>
-                        <p>Special Offer <br> Discount today</p>
+                        <br>
+                        <p>Special Offer <br> Up to 40% off</p>
                     </div>
                 </div>
             </div>
@@ -45,5 +46,12 @@
                 <img src="assets/right-arrow.png" width="40" (click)="Next()" />
             </button>
         </div>
+        <div>
+            <new-collection-products></new-collection-products>
+        </div>
+        <div>
+            <best-product></best-product>
+        </div>
+        <app-footer></app-footer>
     </div>
 </div>

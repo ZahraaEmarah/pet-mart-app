@@ -14,15 +14,15 @@ export class ProductServiceService {
 
   constructor() {
     // this.noOfItemsInCart = new BehaviorSubject<number>(0);
-    this.prdList = [{ id: 1, Name: "Portable bag", Quantity: 12, Price: 68.8, img: "assets/7.jpg", CategoryID: 3 },
-    { id: 2, Name: "Dry Food 1", Quantity: 1, Price: 55.9, img: "assets/1.jpg", CategoryID: 1 },
-    { id: 3, Name: "Toy3", Quantity: 150, Price: 19.9, img: "assets/6.jpg", CategoryID: 2 },
-    { id: 4, Name: "Dry Food 2", Quantity: 45, Price: 35.4, img: "assets/2.jpg", CategoryID: 1 },
-    { id: 5, Name: "Dry Food 3", Quantity: 56, Price: 45.7, img: "assets/3.jpg", CategoryID: 1 },
-    { id: 6, Name: "Toy1", Quantity: 43, Price: 16.2, img: "assets/4.jpg", CategoryID: 2 },
-    { id: 7, Name: "Pet House", Quantity: 109, Price: 79.9, img: "assets/9.jpg", CategoryID: 3 },
-    { id: 8, Name: "Toy2", Quantity: 1, Price: 13.4, img: "assets/5.jpg", CategoryID: 2 },
-    { id: 9, Name: "Dog Bed", Quantity: 145, Price: 66.5, img: "assets/8.jpg", CategoryID: 3 },
+    this.prdList = [{ id: 1, Name: "Portable bag", Quantity: 12, Price: 68.8, img: "assets/7.jpg", CategoryID: 3, OrderedCount: 10 },
+    { id: 2, Name: "Dry Food 1", Quantity: 1, Price: 55.9, img: "assets/1.jpg", CategoryID: 1,OrderedCount: 100 },
+    { id: 3, Name: "Toy3", Quantity: 150, Price: 19.9, img: "assets/6.jpg", CategoryID: 2, OrderedCount: 200 },
+    { id: 4, Name: "Dry Food 2", Quantity: 45, Price: 35.4, img: "assets/2.jpg", CategoryID: 1, OrderedCount: 5 },
+    { id: 5, Name: "Dry Food 3", Quantity: 56, Price: 45.7, img: "assets/3.jpg", CategoryID: 1, OrderedCount: 6 },
+    { id: 6, Name: "Toy1", Quantity: 43, Price: 16.2, img: "assets/4.jpg", CategoryID: 2, OrderedCount: 106 },
+    { id: 7, Name: "Pet House", Quantity: 109, Price: 79.9, img: "assets/9.jpg", CategoryID: 3, OrderedCount: 20 },
+    { id: 8, Name: "Toy2", Quantity: 1, Price: 13.4, img: "assets/5.jpg", CategoryID: 2, OrderedCount: 50 },
+    { id: 9, Name: "Dog Bed", Quantity: 145, Price: 66.5, img: "assets/8.jpg", CategoryID: 3, OrderedCount: 10 },
     ];
   }
 

@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="row text-center title">
+            <p>New Collection</p>
+        </div>
+        <div class="row filter text-center">
+            <div class="col-12 text-center">
+                <button #btnAll [class.active]="clicked === btnAll.textContent"
+                    (click)="clicked = (clicked === btnAll.textContent ? null :btnAll.textContent)">All</button>
+                <button #btnNew [class.active]="clicked === btnNew.textContent"
+                (click)="clicked = (clicked === btnNew.textContent ? null :btnNew.textContent)">New</button>
+                <button #btnBestSeller [class.active]="clicked === btnBestSeller.textContent"
+                (click)="clicked = (clicked === btnBestSeller.textContent ? null :btnBestSeller.textContent)">Best Sellers</button>
+                <button #btnFeatured [class.active]="clicked === btnFeatured.textContent"
+                (click)="clicked = (clicked === btnFeatured.textContent ? null :btnFeatured.textContent)">Featured</button>
+                <button #btnSale [class.active]="clicked === btnSale.textContent"
+                (click)="clicked = (clicked === btnSale.textContent ? null :btnSale.textContent)">On Sale</button>
+
+                <app-products [inputCategoryID]="categoryID" [filter]="clicked"></app-products>
+            </div>
+        </div>
+    </div>
+</div>

@@ -33,7 +33,7 @@ export class SubHeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.CatList = this.child.CatList;
-    this.selectedValue = this.child.selectedValue;
+    this.selectedValue = this.child.inputCategoryID;
     this.StoreName = this.child.myStore.Name;
     this.logo = this.child.logo;
     this.Discount = this.child.Discount.toString();

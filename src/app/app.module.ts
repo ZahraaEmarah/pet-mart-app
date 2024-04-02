@@ -30,6 +30,8 @@ import { AdoptComponent } from './Components/Pets/adopt/adopt.component';
 import { PetsDashboardComponent } from './Components/Pets/pets-dashboard/pets-dashboard.component';
 import { PetControllerComponent } from './Components/Pets/pet-controller/pet-controller.component';
 import { ChatComponent } from './Components/chat/chat.component';
+import { NewCollectionProductsComponent } from './Components/new-collection-products/new-collection-products.component';
+import { BestProductComponent } from './Components/best-product/best-product.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ChatComponent } from './Components/chat/chat.component';
     AdoptComponent,
     PetsDashboardComponent,
     PetControllerComponent,
-    ChatComponent
+    ChatComponent,
+    NewCollectionProductsComponent,
+    BestProductComponent
   ],
   imports: [
     BrowserModule,

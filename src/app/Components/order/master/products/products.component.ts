@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Store } from 'src/app/Models/Store';
 import { Discount } from 'src/app/Models/Discounts';
 import { IProduct } from 'src/app/Models/IProduct';
@@ -27,10 +27,11 @@ export class ProductsComponent implements OnInit {
   private subscriptionList: Subscription[] = [];
 
 
-  @Input() selectedValue: number = -1;
+  @Input() inputCategoryID: number = -1;
+  @Input() filter: string = '';
 
-  constructor(private prdSrv: ProductAPIService, 
-    private router: Router, 
+  constructor(private prdSrv: ProductAPIService,
+    private router: Router,
     private catSrv: CategoryService,
     private shoppingCartSrv: ShoppingCartService) {
     this.myStore = new Store("The Pet Shop", "Logo", ["NY", "EG", "UK"], true);
@@ -55,16 +56,23 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  ngOnChanges(): void {
-
-    if (this.selectedValue == 0) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.inputCategoryID == 0) {
       this.getAllProducts();
     } else {
-      let p = this.prdSrv.getProductsByCatID(this.selectedValue)
+      let p = this.prdSrv.getProductsByCatID(this.inputCategoryID)
         .subscribe((prdList) => {
           this.ProductList = prdList;
         });
-        this.subscriptionList.push(p);
+      this.subscriptionList.push(p);
+    }
+
+    this.applyFilter()
+  }
+
+  applyFilter() {
+    if(this.filter == "Best Sellers"){
+      this.ProductList = this.ProductList.sort(x => x.OrderedCount).splice(0, 6);
     }
   }
 
@@ -106,6 +114,10 @@ export class ProductsComponent implements OnInit {
       this.router.navigate(['/Products', item.id]);
     }
     this.fromCart = false;
+  }
+
+  getBestSellers() {
+    return this.ProductList.sort(x => x.OrderedCount).slice(0, 6);
   }
 
   ngOnDestroy(): void {
