@@ -21,7 +21,7 @@ export class ProductAPIService {
   }
 
   getAllProducts(): Observable<IProduct[]> {
-    return this.httpClient.get<IProduct[]>(`${environment.API_Base_URL}/Products`);
+    return this.httpClient.get<IProduct[]>(`${environment.API_Base_URL}/api/Products`);
   }
 
   getProductsByCatID(cID: number): Observable<IProduct[]> {

@@ -6,17 +6,45 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a>
-                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Adopt" routerLinkActive="active">Adopt</a>
-                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Products" routerLinkActive="active">Shop</a>
-                <a class="nav-link ms-auto me-5" [hidden]="!isLogged" href="#" routerLink="/User/Edit" routerLinkActive="active">Profile</a>
-                <a class="nav-link ms-auto me-5" [hidden]="isLogged" href="#" routerLink="/Login" routerLinkActive="active">Login</a>
+            <div class="navbar-nav mx-auto">
+                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Home"
+                    routerLinkActive="active">Home</a>
+                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Adopt"
+                    routerLinkActive="active">Adopt</a>
+                <a class="nav-link ms-auto me-5" aria-current="page" routerLink="/Products"
+                    routerLinkActive="active">Shop</a>
+                <a class="nav-link ms-auto me-5" [hidden]="!isLogged" href="#" routerLink="/User/Edit"
+                    routerLinkActive="active">Profile</a>
+                <a class="nav-link ms-auto me-5" [hidden]="isLogged" href="#" routerLink="/Login"
+                    routerLinkActive="active">Login</a>
                 <a class="nav-link ms-auto me-5" [hidden]="isLogged" href="#" routerLink="/Register"
                     routerLinkActive="active">Register</a>
                 <a class="nav-link ms-auto me-5" [hidden]="!isLogged" href="#" routerLink="/Login"
                     routerLinkActive="active">Logout</a>
+            </div>
+            <div>
+                <div class="navbar-nav ms-auto">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+    
+                    <!-- Profile Icon -->
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+    
+                    <!-- Shopping Cart Icon -->
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+    
+                    <!-- Wishlist Icon -->
+                    <div class="wishlist-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                 </div>
+            </div>
         </div>
+        
     </div>
 </nav>

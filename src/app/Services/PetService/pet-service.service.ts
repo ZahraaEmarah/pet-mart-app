@@ -20,7 +20,9 @@ export class PetServiceService {
   }
 
   getAllPets(): Observable<IPet[]> {
-    return this.httpClient.get<IPet[]>(`${environment.API_Base_URL}/Pets`);
+    let p = this.httpClient.get<IPet[]>(`${environment.API_Base_URL}/api/pet/GetPets`);
+    console.log(p);
+    return p;
   }
 
   getPetsByOwnerID(oID: number): Observable<IPet[]> {

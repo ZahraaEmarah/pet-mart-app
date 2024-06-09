@@ -1,7 +1,7 @@
 export interface IPet {
     id: number;
     ownerID: number;
-    img: number;
+    image: number;
     Name: string;
     type: string;
     breed: string;

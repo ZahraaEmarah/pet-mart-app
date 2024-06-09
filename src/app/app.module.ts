@@ -32,6 +32,8 @@ import { PetControllerComponent } from './Components/Pets/pet-controller/pet-con
 import { ChatComponent } from './Components/chat/chat.component';
 import { NewCollectionProductsComponent } from './Components/new-collection-products/new-collection-products.component';
 import { BestProductComponent } from './Components/best-product/best-product.component';
+import { ApiService } from './Services/api.service';
+import { HttpService } from './Services/http.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,10 @@ import { BestProductComponent } from './Components/best-product/best-product.com
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
